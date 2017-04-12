@@ -26,7 +26,8 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 3
 script:
-  - npm run ci:travis
+  #- npm run ci:travis
+   - npm test
 cache:
   directories:
     - node_modules
