@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "tslint": "tslint .",
+    "e2e": "ng e2e",
+    "pree2e": "webdriver-manager update"
   },
   "private": true,
   "dependencies": {
@@ -21,26 +23,35 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "jquery": "3.2.1",
+    "ng-semantic": "1.1.13",
+    "rxjs": "^5.3.0",
+    "selenium-webdriver": "3.3.0",
+    "ts-helpers": "^1.1.2",
+    "tslint": "5.0.0",
+    "zone.js": "^0.8.5"
   },
   "devDependencies": {
     "@angular/cli": "1.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@types/jasmine": "2.5.38",
-    "@types/node": "~6.0.60",
-    "codelyzer": "~2.0.0",
+    "@angular/compiler-cli": "^4.0.1",
+    "@types/jasmine": "2.5.47",
+    "@types/node": "^7.0.12",
+    "angular-ide": "0.9.19",
+    "codelyzer": "https://github.com/jskrzypek/codelyzer#feat/tslint-5",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
-    "karma": "~1.4.1",
-    "karma-chrome-launcher": "~2.0.0",
+    "karma": "~1.6.0",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
+    "karma-edge-launcher": "0.4.1",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-firefox-launcher": "1.0.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
-    "protractor": "~5.1.0",
-    "ts-node": "~2.0.0",
-    "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "protractor": "~5.1.1",
+    "ts-node": "~3.0.2",
+    "tslint": "~5.0.0",
+    "typescript": "~2.2.2",
+    "webdriver-manager": "12.0.4"
   }
 }

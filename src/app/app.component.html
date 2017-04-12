@@ -1,3 +1,25 @@
 <h1>
-  {{title}}
+    {{title}}
 </h1>
+<sm-menu title="Knowledge" class="inverted">
+    <a sm-item *ngFor="let item of menuItems" [icon]="item.icon" [routerLink]="item.link">{{item?.title}}</a>
+
+    <sm-menu class="menu right secondary">
+        <a sm-item routerLink="profile" [image]="user.profileImage">{{user.name}}</a>
+        <a sm-item icon="sidebar big" (click)="menuSidebar.show({transition: 'overlay'})"></a>
+    </sm-menu>
+</sm-menu>
+
+<sm-sidebar class="left vertical inverted sidebar labeled icon menu" #menuSidebar>
+    <a class="item">
+        <i class="home icon"></i> Home
+    </a>
+    <a class="item">
+        <i class="block layout icon"></i> Topics
+    </a>
+    <a class="item">
+        <i class="smile icon"></i> Friends
+    </a>
+</sm-sidebar>
+
+<router-outlet></router-outlet>

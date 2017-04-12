@@ -1,12 +1,12 @@
-import { TestBed, async } from '@angular/core/testing';
-
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, PdfGeneratorComponent,
       ],
     }).compileComponents();
   }));

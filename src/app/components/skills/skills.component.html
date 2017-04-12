@@ -1,0 +1,66 @@
+<sm-menu class="secondary inverted red">
+    <a sm-item (click)="myModalNormal.show({inverted: true})">Add Skill</a>
+</sm-menu>
+<p>This are your skills: </p>
+<div (click)="doIt()">button</div>
+<sm-list class="divided bulleted relaxed">
+    <sm-item *ngFor="let item of user.skills" [image]="item.image" [header]="item?.name">{{item?.name}}</sm-item>
+</sm-list>
+
+<sm-modal title="Create a Skill" class="" icon="home" #myModalNormal>
+    <modal-content>
+        <!--<div class="image content">
+            <div class="image">
+                An image can appear on left or an icon
+            </div>
+            <div class="description">
+                A description can appear on the right
+            </div>
+        </div>-->
+        <form class="ui form" [formGroup]="form"><!-- (submit)="addSkillFG()">-->
+            <sm-loader [complete]="!formSubmited" class="inverted" text="Loading..."></sm-loader>
+            <div class="field">
+                <sm-input label="Skill Name" [control]="form.controls.skillName" placeholder="Enter skill..."></sm-input>
+            </div>
+            <!--<div class="field">-->
+            <!--<sm-input label="E-mail" [control]="form.controls.emailControl" placeholder="Enter e-mail..."></sm-input>-->
+            <!--</div>-->
+            <!--<div class="field">-->
+            <!--<sm-checkbox label="I agree to the Terms and Conditions" [control]="agreeControl"></sm-checkbox>-->
+            <!--</div>-->
+            <sm-button (click)="addSkillFG()" [disabled]="!form.valid" class="primary">Create Skill</sm-button>
+        </form>
+        <form class="ui form" #form2="ngForm" (ngSubmit)="addSkill(form2)">
+            <p *ngIf="nameCtrl.invalid">Skill is invalid.</p>
+            <div ngModelGroup="mygroup" #nameCtrl="ngModelGroup">
+                <input name="first" [ngModel]="initValues.first" required minlength="2">
+                <input name="last" [ngModel]="initValues.last" required>
+                <input name="skillName" [ngModel]="initValues.skillName" required>
+                <!--<input name="first" [(ngModel)]="newSkill.first" required minlength="2">
+                <input name="last" [(ngModel)]="newSkill.last" required>
+                <input name="skillName" [(ngModel)]="newSkill.skillName" required>-->
+            </div>
+            <!--<sm-loader [complete]="!formSubmited" class="inverted" text="Loading..."></sm-loader>-->
+            <!--<div class="field">-->
+            <!--<sm-input label="Skill Name" name="newSkill"  [ngModel]="newSkill.skillName" placeholder="Enter skill..."></sm-input>-->
+            <!--</div>-->
+            <!--<div class="field">-->
+            <!--<sm-input label="E-mail" [control]="form.controls.emailControl" placeholder="Enter e-mail..."></sm-input>-->
+            <!--</div>-->
+            <!--<div class="field">-->
+            <!--<sm-checkbox label="I agree to the Terms and Conditions" [control]="agreeControl"></sm-checkbox>-->
+            <!--</div>-->
+            <!--<sm-button (click)="submit()" [disabled]="!myForm.valid" class="primary">Create Skill</sm-button>-->
+            <button>Submit</button>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <!--<div (click)="addSkill()" class="ui approve button">Approve</div>-->
+            <div class="ui button primary" (click)="myModalNormal.hide()">Close modal</div>
+            <!--<div class="ui cancel button">Cancel</div>-->
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<!--<pre>{{user.skills | json}}</pre>-->
