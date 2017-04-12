@@ -24,7 +24,7 @@
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
     "jquery": "3.2.1",
-    "ng-semantic": "1.1.13",
+    "ng-semantic": "https://github.com/borisfeldmann/ngSemantic/tarball/master",
     "rxjs": "^5.3.0",
     "selenium-webdriver": "3.3.0",
     "ts-helpers": "^1.1.2",
