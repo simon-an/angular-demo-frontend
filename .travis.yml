@@ -1,11 +1,12 @@
 sudo: required
 dist: trusty
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+apt:
+  sources:
+    — google-chrome
+  packages:
+    — google-chrome-stable
+    — google-chrome-beta
 language: node_js
 node_js:
   - "4"
@@ -28,4 +29,4 @@ script:
   - npm run ci:travis
 cache:
   directories:
-- node_modules
+    - node_modules
