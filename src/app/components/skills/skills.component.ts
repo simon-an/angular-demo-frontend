@@ -28,8 +28,9 @@ export class SkillsComponent implements OnInit {
     //   .asValidator()] //finally issues a subscribe and returns the validator function
   });
 
-  private user: User;
   initValues = { first: 'Nancy', last: 'Drew', skillName: '' };
+  skills = new Array<Skill>();
+  private user: User;
 
   /**
    *
@@ -41,7 +42,28 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
-    Observable.of(this.user.skills).subscribe((skills) => console.log('changes: ' + skills))
+
+    const skillString = localStorage.getItem('skills');
+    if (skillString) {
+      this.skills = JSON.parse(skillString);
+    } else {
+      this.skills = this.user.skills;
+    }
+    Observable.of(this.skills).subscribe(
+      (skills) => console.log('changes: ' + skills),
+      (error) => { console.error('', error) },
+      () => { console.log('complete') },
+    )
+
+    // dataService.skills.subscribe(
+    //   (skills) => console.log('changes: ' + skills),
+    //   (error) => { console.error('', error) },
+    //   () => { console.log('complete') },
+    // );
+  }
+
+  saveSkills(): void {
+    localStorage.setItem('skills', JSON.stringify(this.skills));
   }
 
   getUser(): void {
@@ -50,14 +72,14 @@ export class SkillsComponent implements OnInit {
 
   addSkillFG(): void {
     if (this.form.dirty && this.form.valid) {
-      if (this.user.skills.find((skill) => skill.name === this.form.value.skillName)) {
+      if (this.skills.find((skill) => skill.name === this.form.value.skillName)) {
         console.log('skill exists' + this.form.value.skillName);
       } else {
-        this.user.skills.push(new Skill(this.form.value.skillName));
-        // this.user.skills = this.user.skills.slice();
-        // alert(`Name: ${this.myForm.value.skillName}`);
-        // this.router.navigate['skills'];
-        console.log('new skill' + this.user.skills.length);
+        // this.user.skills.push(new Skill(this.form.value.skillName));
+        this.skills.push(new Skill(this.form.value.skillName));
+
+        console.log('new skill' + this.skills.length);
+        this.saveSkills();
       }
     }
   }
@@ -65,14 +87,15 @@ export class SkillsComponent implements OnInit {
   addSkill(form2: NgForm): void {
     console.log(form2.value.mygroup.skillName);
     if (form2.dirty && form2.valid) {
-      if (this.user.skills.find((skill) => skill.name === form2.value.mygroup.skillName)) {
+      if (this.skills.find((skill) => skill.name === form2.value.mygroup.skillName)) {
         console.log('skill exists' + form2.value.mygroup.skillName);
       } else {
-        this.user.skills.push(new Skill(form2.value.mygroup.skillName));
+        this.skills.push(new Skill(form2.value.mygroup.skillName));
         // this.user.skills = this.user.skills.slice();
         // alert(`Name: ${this.myForm.value.skillName}`);
         // this.router.navigate['skills'];
-        console.log('new skill' + this.user.skills.length);
+        console.log('new skill' + this.skills.length);
+        this.saveSkills();
       }
     }
   }

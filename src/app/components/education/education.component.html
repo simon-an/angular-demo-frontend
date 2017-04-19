@@ -1,9 +1,61 @@
-<p>
-  education works!
-</p>
-<div>
-  <div (click)="doIt()">button</div>
-  <ul *ngFor="let item of items">
-    <li>Item: {{item.itemKey}}</li>
-  </ul>
+<sm-menu class="secondary inverted red">
+  <a sm-item (click)="myModalNormal.show({inverted: true})">Add Education</a>
+</sm-menu>
+<sm-list class="divided bulleted relaxed">
+  <sm-item *ngFor="let item of items" [header]="item?.school.name">{{item?.school.website}}</sm-item>
+</sm-list>
+<!-- Primitive List -->
+<div *ngFor="let item of items" class='education'>
+  <h3>Education</h3>
+  <div class=school>
+    <h5>School</h5>
+    <p>{{item.school.name}}</p>
+    <a [href]="item.school.website">{{item.school.website}}</a>
+  </div>
+  <div class="location">
+    <h5>Location</h5>
+    {{item.location}}
+  </div>
+  <div class="graduation" *ngIf="item.graduation">
+    <h5>Graduation</h5>
+    <span>{{item.graduation.degree}}</span>
+    <span>of</span>
+    <span>{{item.graduation.macos}}</span>
+    <span> </span>
+    <span>{{item.graduation.spezialisation}}</span>
+  </div>
+  <div class="period">
+    <h5>Timespan</h5>
+    <span>{{item.duration.from}}</span>
+    <span>{{item.duration.to}}</span>
+  </div>
+  <div class='courses'>
+    <div class='course' *ngFor="let course of item.courses">
+      <h5>Course</h5>
+      <p>{{course.name}}</p>
+      <p>{{course.dozentName}}</p>
+    </div>
+  </div>
 </div>
+
+
+<sm-modal title="Create a Education" class="" icon="book" #myModalNormal>
+  <modal-content>
+    <form class="ui form" #form2="ngForm" (ngSubmit)="addEducation(form2)">
+      <p *ngIf="nameCtrl.invalid">Skill is invalid.</p>
+      <div ngModelGroup="schoolGroup" #nameCtrl="ngModelGroup">
+        <input name="name" required minlength="10">
+        <!--<input name="last" [ngModel]="initValues.last" required>-->
+        <!--<input name="skillName" [ngModel]="initValues.skillName" required>-->
+      </div>
+      <button>Submit</button>
+    </form>
+  </modal-content>
+  <modal-actions>
+    <div class="ui buttons">
+      <!--<div (click)="addSkill()" class="ui approve button">Approve</div>-->
+      <div class="ui button primary" (click)="myModalNormal.hide()">Close modal</div>
+      <!--<div class="ui cancel button">Cancel</div>-->
+    </div>
+  </modal-actions>
+</sm-modal>

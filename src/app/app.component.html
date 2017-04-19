@@ -1,11 +1,13 @@
-<h1>
+<h1 Highlight>
     {{title}}
 </h1>
+<p myHighlight>Highlight me!</p>
 <sm-menu title="Knowledge" class="inverted">
     <a sm-item *ngFor="let item of menuItems" [icon]="item.icon" [routerLink]="item.link">{{item?.title}}</a>
 
     <sm-menu class="menu right secondary">
-        <a sm-item routerLink="profile" [image]="user.profileImage">{{user.name}}</a>
+        <a Highlight sm-item routerLink="profile" [image]="user.profileImage">{{user.name}}</a>
+        <a sm-item icon="suitcase big" (click)="storeSidebar.show({transition: 'overlay'})"></a>
         <a sm-item icon="sidebar big" (click)="menuSidebar.show({transition: 'overlay'})"></a>
     </sm-menu>
 </sm-menu>
@@ -21,5 +23,16 @@
         <i class="smile icon"></i> Friends
     </a>
 </sm-sidebar>
+
+<sm-sidebar class="left vertical inverted sidebar labeled icon menu" #storeSidebar>
+    <!--<a *ngFor="let item of storeMenuItems" class="item" [onBeforeAddingProcessor]=isValid storeMenuItemClickHandler [callBack2]="item.callback"
+        [callBack]=saveFunction (myClick)="onClick($event)">
+        <i [class]="item.icon"></i> {{item.title}}
+    </a>-->
+    <a *ngFor="let item of storeMenuItems2" class="item" (click)=item.callback()>
+        <i [class]="item.icon"></i> {{item.title}}
+    </a>
+</sm-sidebar>
+
 
 <router-outlet></router-outlet>

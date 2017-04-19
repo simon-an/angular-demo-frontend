@@ -2,9 +2,8 @@
     <a sm-item (click)="myModalNormal.show({inverted: true})">Add Skill</a>
 </sm-menu>
 <p>This are your skills: </p>
-<div (click)="doIt()">button</div>
 <sm-list class="divided bulleted relaxed">
-    <sm-item *ngFor="let item of user.skills" [image]="item.image" [header]="item?.name">{{item?.name}}</sm-item>
+    <sm-item *ngFor="let item of skills" [image]="item.image" [header]="item?.name">{{item?.name}}</sm-item>
 </sm-list>
 
 <sm-modal title="Create a Skill" class="" icon="home" #myModalNormal>

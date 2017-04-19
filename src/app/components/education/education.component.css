@@ -1,0 +1,42 @@
+.education{
+    border-color: red;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    margin: 2px;
+}
+.school{
+    border-color: red;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    margin: 2px;
+}
+.course{
+    border-color: green;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    margin: 2px;
+}
+.graduation{
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    margin: 2px;
+}
+.location{
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    margin: 2px;
+}
+.period{
+    border-color: yellow;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    margin: 2px;
+}
