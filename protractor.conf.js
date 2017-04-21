@@ -2,14 +2,14 @@
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
-
+const Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
 
 //onPrepare: function () {
 //    var wd = require('wd'),
 //      protractor = require('protractor'),
 //      wdBridge = require('wd-bridge')(protractor, wd);
- //    wdBridge.initFromProtractor(exports.config);
- // }
+//    wdBridge.initFromProtractor(exports.config);
+// }
 
 
 exports.config = {
@@ -18,31 +18,40 @@ exports.config = {
     './e2e/**/*.e2e-spec.ts'
   ],
 
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  // Use this when running Webdriver manually. make sure  webdriver.edge.driver system property is set to the executable.
+  // seleniumAddress: 'http://localhost:17556/',
   capabilities: {
-  // 'browserName': 'MicrosoftEdge',
-  //  'browserName': 'firefox'
- //  'browserName': 'chrome'
-    //platformName: 'Android',
-    //platformVersion: '7.0',
-   // deviceName: 'Android Emulator',
-
-  'chromeOptions': {
-    'args': ['show-fps-counter=true']
-  },
-   'browserName': 'IE',
     elementScrollBehavior: 1,
-    nativeEvents: false
+    nativeEvents: false,
+    // browserName: 'MicrosoftEdge',
+    // platform: 'Windows 10',
+    // version: '13.10586',
+
+    browserName: 'chrome',
+
+    // browserName: 'firefox',
 
   },
+  // multiCapabilities: [
+  //   {
+  //     browserName: 'chrome',
+  //     chromeOptions: {
+  //       'args': ['show-fps-counter=true']
+  //     },
+  //   },
+  //   {
+  //     browserName: 'firefox'
+  //   },
+  //   {
+  //     browserName: 'MicrosoftEdge',
+  //     platform: 'Windows 10',
+  //     version: '13.10586',
+  //   }
+  // ],
+
   directConnect: false,
-  baseUrl: 'http://localhost:4200/',
- // baseUrl: 'http://localhost:17556/',
+  baseUrl: 'http://localhost:49152/',
   framework: 'jasmine',
- // baseUrl: 'http://127.0.0.1:4321/index_protractor.html',
-  //framework: 'cucumber',
- // seleniumArgs: ['-Dwebdriver.ie.driver=node_modules/protractor/selenium/MicrosoftWebDriver.exe'],
-  //
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
@@ -54,6 +63,12 @@ exports.config = {
     });
   },
   onPrepare() {
+    browser.ignoreSynchronization = false;
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+    jasmine.getEnv().addReporter(new Jasmine2HtmlReporter({
+      takeScreenshots: true,
+      takeScreenshotsOnlyOnFailures: true,
+      savePath: './test/reports/',
+    }));
   }
 };
