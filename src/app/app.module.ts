@@ -4,10 +4,9 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
-
+import { AppComponent, HighlightDirective } from './app.component';
 import { UserService } from 'app/services/user.service';
 import { WebsocketService } from 'app/services/websocket.service';
-import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { DocumentsComponent } from './components/documents/documents.component';
@@ -22,6 +21,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { WebsocketComponent } from './components/sample-components/websocket/websocket.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ConfigClickHandlerDirective } from './configClickHandlerDirective';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     ContactApprovalComponent,
     ProjectListComponent,
     WebsocketComponent,
+    HighlightDirective,
+    ConfigClickHandlerDirective,
   ],
   imports: [
     BrowserModule,
