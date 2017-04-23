@@ -1,4 +1,3 @@
-import { ConfigClickHandlerDirective } from './configClickHandlerDirective';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -7,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 
 import { UserService } from 'app/services/user.service';
-import { AppComponent, HighlightDirective } from './app.component';
+import { WebsocketService } from 'app/services/websocket.service';
+import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { DocumentsComponent } from './components/documents/documents.component';
@@ -19,6 +19,7 @@ import { PersonDetailComponent } from './components/person-detail/person-detail.
 import { PersonListComponent } from './components/person-list/person-list.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { WebsocketComponent } from './components/sample-components/websocket/websocket.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
@@ -38,8 +39,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     PersonCardComponent,
     ContactApprovalComponent,
     ProjectListComponent,
-    HighlightDirective,
-    ConfigClickHandlerDirective,
+    WebsocketComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +87,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 
     ]),
   ],
-  providers: [UserService],
+  providers: [UserService, WebsocketService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
