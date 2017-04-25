@@ -43,8 +43,6 @@ export class EducationComponent implements OnInit {
     this.items[2].courses.push(new Course('Meier Sepp', 'Boden Turnen'));
     this.items[3].courses.push(new Course('Meier Sepp', 'Boden Turnen'));
 
-
-
     this.getUser();
 
   }

@@ -29,7 +29,7 @@ export class AdminDashboardComponent implements OnInit {
   modules: string[];
 
   constructor(
-    private route: ActivatedRoute,
+    // private route: ActivatedRoute,
     private preloadStrategy: SelectivePreloadingStrategy,
   ) {
     this.modules = preloadStrategy.preloadedModules;
@@ -37,13 +37,13 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {
     // Capture the session ID if available
-    this.sessionId = this.route
-      .queryParams
-      .map((params) => params['session_id'] || 'None');
+    // this.sessionId = this.route
+    //   .queryParams
+    //   .map((params) => params['session_id'] || 'None');
 
     // Capture the fragment if available
-    this.token = this.route
-      .fragment
-      .map((fragment) => fragment || 'None');
+    // this.token = this.route
+    //   .fragment
+    //   .map((fragment) => fragment || 'None');
   }
 }

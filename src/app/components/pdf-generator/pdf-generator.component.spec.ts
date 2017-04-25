@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { UserService } from 'app/services/user.service';
 import { PdfGeneratorComponent } from './pdf-generator.component';
 
 describe('PdfGeneratorComponent', () => {
@@ -9,6 +10,7 @@ describe('PdfGeneratorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PdfGeneratorComponent],
+      providers: [UserService],
     })
       .compileComponents();
   }));

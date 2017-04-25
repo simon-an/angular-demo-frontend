@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms/';
+import { UserService } from 'app/services/user.service';
+import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { PersonDetailComponent } from './person-detail.component';
 
 describe('PersonDetailComponent', () => {
@@ -8,9 +10,12 @@ describe('PersonDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonDetailComponent ]
+      declarations: [PersonDetailComponent],
+      imports: [NgSemanticModule, FormsModule,
+        ReactiveFormsModule],
+      providers: [UserService],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

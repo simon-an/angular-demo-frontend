@@ -3,10 +3,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
-import { AppComponent, HighlightDirective } from './app.component';
+import { TagsService } from 'app/services/stackexchange/tags.service';
 import { UserService } from 'app/services/user.service';
 import { WebsocketService } from 'app/services/websocket.service';
+import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+import { AppComponent, HighlightDirective } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { DocumentsComponent } from './components/documents/documents.component';
@@ -89,7 +90,7 @@ import { ConfigClickHandlerDirective } from './configClickHandlerDirective';
 
     ]),
   ],
-  providers: [UserService, WebsocketService],
+  providers: [UserService, WebsocketService, TagsService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

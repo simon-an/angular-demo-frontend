@@ -38,7 +38,11 @@ export class SkillsComponent implements OnInit {
    * @param _fb
    * @param router
    */
-  constructor(private userService: UserService, private _fb: FormBuilder, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private _fb: FormBuilder,
+    // private router: Router,
+  ) { }
 
   ngOnInit() {
     this.getUser();

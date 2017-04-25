@@ -4,7 +4,7 @@ import { ElementRef, Renderer2 } from '@angular/core';
 import { Input } from '@angular/core';
 import { ArrayBuffer } from '@angular/http/src/static_request';
 import { Router } from '@angular/router';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+import { NgSemanticModule, SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from 'ng-semantic/ng-semantic';
 import { User } from './datamodel/user';
 import { UserService } from './services/user.service';
 
@@ -95,11 +95,11 @@ export class AppComponent {
   }
   load(): void {
     console.log('load');
-   }
+  }
   delete(): void {
     localStorage.clear();
     console.log('delete');
-   }
+  }
 
   onClick(event: Event): void {
     console.log('onclick', event[0].target, event[2]);

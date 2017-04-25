@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { WebsocketComponent } from 'app/components/sample-components/websocket/websocket.component';
+import { WebsocketService } from 'app/services/websocket.service';
 import { DocumentsComponent } from './documents.component';
 
 describe('DocumentsComponent', () => {
@@ -8,9 +10,11 @@ describe('DocumentsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DocumentsComponent ]
+      declarations: [DocumentsComponent, WebsocketComponent],
+      imports: [],
+      providers: [WebsocketService],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
