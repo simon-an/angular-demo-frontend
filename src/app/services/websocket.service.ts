@@ -10,16 +10,18 @@ export class WebsocketService {
         socket.onmessage = observer.next.bind(observer);
         socket.onerror = observer.error.bind(observer);
         socket.onclose = observer.complete.bind(observer);
+
         return socket.close.bind(socket);
-      },
+      }
     );
     const observer = {
       next: (data: any) => {
         if (socket.readyState === WebSocket.OPEN) {
           socket.send(JSON.stringify(data));
         }
-      },
+      }
     };
+
     return Subject.create(observer, observable);
   }
 }

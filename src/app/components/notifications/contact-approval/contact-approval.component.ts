@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactApprovalComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    //
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    //
   }
 
 }

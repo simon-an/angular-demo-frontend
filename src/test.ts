@@ -9,8 +9,6 @@
 // import 'zone.js/dist/async-test';
 // import 'zone.js/dist/fake-async-test';
 
-
-
 // import 'core-js/client/shim';
 // import 'reflect-metadata';
 // import 'zone.js/dist/zone';
@@ -31,14 +29,14 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
-// tslint:disable-next-line:prefer-const
-declare var __karma__: any;
-// tslint:disable-next-line:prefer-const
-declare var require: any;
+declare const __karma__: any;
+declare const require: any;
 
 // Prevent Karma from running prematurely.
 // tslint:disable-next-line:only-arrow-functions
-__karma__.loaded = () => { };
+__karma__.loaded = function(): void {
+  //
+};
 
 // First, initialize the Angular testing environment.
 TestBed.initTestEnvironment(

@@ -14,9 +14,9 @@ node_js:
 matrix:
   fast_finish: true
   allow_failures:
-  - node_js: "4"
+  - node_js: "7"
 before_install:
-  - npm i npm@^4 -g
+  - npm i npm@^5 -g
 install:
   - npm install
 before_script:

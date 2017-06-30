@@ -3,8 +3,8 @@ import { ProjectMembership } from './project-membership';
 import { ProjectRole } from './project-role';
 export class ProjectTeam {
 
-    team: ProjectMember[];
-    layout: ProjectRole[];
+    team: Array<ProjectMember>;
+    layout: Array<ProjectRole>;
 
     isLayoutCompleteToday(): boolean { return false; }
 

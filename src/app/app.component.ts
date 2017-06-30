@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, OnInit } from '@angular/core';
 import { Directive } from '@angular/core';
 import { ElementRef, Renderer2 } from '@angular/core';
 import { Input } from '@angular/core';
@@ -8,11 +8,11 @@ import { User } from './datamodel/user';
 import { UserService } from './services/user.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'knowledge-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'Welcome to my App';
 
@@ -46,7 +46,7 @@ export class AppComponent {
   }
   constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     (this.storeMenuItems[0].callback as EventEmitter<string>).asObservable.bind(this.save);
     (this.storeMenuItems[0].callback as EventEmitter<string>).subscribe((e: string) => { console.log('bla') });
     this.getUser();
@@ -65,8 +65,8 @@ export class AppComponent {
   getUser(): void {
     this.userService.getUser().subscribe(user => {
       this.user = user;
-      console.log('Hello' + this.user.profileImage);
-    }, error => console.log('Nothing' + error));
+      console.log('Hello', this.user.profileImage);
+    }, error => console.log('Nothing', error));
   }
   // event: Event
   save(): void {
@@ -171,19 +171,19 @@ export class AppComponent {
 
 // tslint:disable-next-line:max-classes-per-file
 @Directive({
-  selector: '[myHighlight]'
+  selector: '[knowledge-myHighlight]'
 })
 export class HighlightDirective {
   @Input() highlightColor: string;
-  @HostListener('mouseenter') mouseover() {
+  @HostListener('mouseenter') mouseover(): void {
     this.backgroundColor = 'green';
   };
 
-  @HostListener('mouseleave') mouseleave() {
+  @HostListener('mouseleave') mouseleave(): void {
     this.backgroundColor = 'red';
   }
 
-  @HostBinding('style.backgroundColor') get setColor() {
+  @HostBinding('style.backgroundColor') get setColor(): string {
     return this.backgroundColor;
   };
 

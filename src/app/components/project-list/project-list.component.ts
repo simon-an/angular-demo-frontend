@@ -24,7 +24,8 @@ export class ProjectListComponent implements OnInit {
     this.projects[2].companyName = 'AZD';
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    //
   }
 
 }

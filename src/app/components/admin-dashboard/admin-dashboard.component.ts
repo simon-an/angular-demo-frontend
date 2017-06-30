@@ -26,16 +26,16 @@ import 'rxjs/add/operator/map';
 export class AdminDashboardComponent implements OnInit {
   sessionId: Observable<string>;
   token: Observable<string>;
-  modules: string[];
+  modules: Array<string>;
 
   constructor(
     // private route: ActivatedRoute,
-    private preloadStrategy: SelectivePreloadingStrategy,
+    private preloadStrategy: SelectivePreloadingStrategy
   ) {
     this.modules = preloadStrategy.preloadedModules;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Capture the session ID if available
     // this.sessionId = this.route
     //   .queryParams

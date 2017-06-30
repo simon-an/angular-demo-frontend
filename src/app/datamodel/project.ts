@@ -6,13 +6,13 @@ import { Skill } from 'app/datamodel/skill';
 
 export class Project {
 
-    people: Person[];
+    people: Array<Person>;
     name: string;
     companyName: string;
     companyEmployment: Job;
     duration: any;
-    skillsUsed: Skill[];
-    jobRoles: JobRole[];
+    skillsUsed: Array<Skill>;
+    jobRoles: Array<JobRole>;
     projectTeam: ProjectTeam;
     intern: boolean;
 

@@ -3,14 +3,14 @@ import { async, TestBed } from '@angular/core/testing';
 describe('Es2017', () => {
 
     const foo = {
-        fooProperty: 'testing',
+        fooProperty: 'testing'
     }
     const bar = {
-        barProperty: 'hello',
+        barProperty: 'hello'
     }
 
     const baz = {
-        bazProperty: 'world',
+        bazProperty: 'world'
     }
 
     const merged = { ...foo, ...bar, ...baz };

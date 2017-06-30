@@ -14,12 +14,12 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css'],
+  styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
 
   public form = this._fb.group({
-    skillName: ['', /*Validators.required,*/ Validators.minLength(6)],
+    skillName: ['', /*Validators.required,*/ Validators.minLength(6)]
     // [ObservableAsyncValidator
     //   .create(c => this.yourServiceName.existenceValidator(c))
     //   .observe(x => //here you add any RxJs you like
@@ -40,24 +40,24 @@ export class SkillsComponent implements OnInit {
    */
   constructor(
     private userService: UserService,
-    private _fb: FormBuilder,
+    private _fb: FormBuilder
     // private router: Router,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUser();
 
     const skillString: string | null = localStorage.getItem('skills');
     // tslint:disable-next-line:prefer-conditional-expression
-    if (skillString !== null) {
+    if (skillString) {
       this.skills = JSON.parse(skillString);
     } else {
       this.skills = this.user.skills;
     }
     Observable.of(this.skills).subscribe(
-      (skills) => console.log('changes: ' + skills),
-      (error) => { console.error('', error) },
-      () => { console.log('complete') },
+      skills => console.log('changes: ', skills),
+      error => { console.error('', error) },
+      () => { console.log('complete') }
     )
 
     // dataService.skills.subscribe(
@@ -72,18 +72,18 @@ export class SkillsComponent implements OnInit {
   }
 
   getUser(): void {
-    this.userService.getUser().subscribe((user) => this.user = user);
+    this.userService.getUser().subscribe(user => this.user = user);
   }
 
   addSkillFG(): void {
     if (this.form.dirty && this.form.valid) {
-      if (this.skills.find((skill) => skill.name === this.form.value.skillName)) {
-        console.log('skill exists' + this.form.value.skillName);
+      if (this.skills.find(skill => skill.name === this.form.value.skillName)) {
+        console.log('skill exists', this.form.value.skillName);
       } else {
         // this.user.skills.push(new Skill(this.form.value.skillName));
         this.skills.push(new Skill(this.form.value.skillName));
 
-        console.log('new skill' + this.skills.length);
+        console.log('new skill', this.skills.length);
         this.saveSkills();
       }
     }
@@ -92,14 +92,14 @@ export class SkillsComponent implements OnInit {
   addSkill(form2: NgForm): void {
     console.log(form2.value.mygroup.skillName);
     if (form2.dirty && form2.valid) {
-      if (this.skills.find((skill) => skill.name === form2.value.mygroup.skillName)) {
-        console.log('skill exists' + form2.value.mygroup.skillName);
+      if (this.skills.find(skill => skill.name === form2.value.mygroup.skillName)) {
+        console.log('skill exists', form2.value.mygroup.skillName);
       } else {
         this.skills.push(new Skill(form2.value.mygroup.skillName));
         // this.user.skills = this.user.skills.slice();
         // alert(`Name: ${this.myForm.value.skillName}`);
         // this.router.navigate['skills'];
-        console.log('new skill' + this.skills.length);
+        console.log('new skill', this.skills.length);
         this.saveSkills();
       }
     }

@@ -5,7 +5,7 @@ import { UserService } from 'app/services/user.service';
 @Component({
   selector: 'app-person-detail',
   templateUrl: './person-detail.component.html',
-  styleUrls: ['./person-detail.component.css'],
+  styleUrls: ['./person-detail.component.css']
 })
 export class PersonDetailComponent implements OnInit {
 
@@ -13,12 +13,12 @@ export class PersonDetailComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void {
-    this.userService.getUser().subscribe((user) => this.user = user);
+    this.userService.getUser().subscribe((user: User) => this.user = user);
   }
 
 }

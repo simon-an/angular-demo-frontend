@@ -11,7 +11,6 @@ export class PersonListComponent implements OnInit {
 
   persons = new Array<Person>();
 
-
   user: User;
 
   constructor(private userService: UserService) {
@@ -30,8 +29,6 @@ export class PersonListComponent implements OnInit {
     this.persons[1].location = 'Dubai';
     this.persons[1].birthDate = new Date(1983, 1, 21);
 
-
-
     this.persons.push(new Person());
     this.persons[2].firstName = 'Mrs.';
     this.persons[2].lastName = '2';
@@ -40,12 +37,12 @@ export class PersonListComponent implements OnInit {
     this.persons[2].location = 'Munich';
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void {
-    this.userService.getUser().subscribe((user) => this.user = user);
+    this.userService.getUser().subscribe((user: User) => this.user = user);
   }
 
 }

@@ -8,7 +8,7 @@ describe('TagsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [TagsService],
-      imports: [HttpModule],
+      imports: [HttpModule]
     });
   });
 
@@ -18,13 +18,13 @@ describe('TagsService', () => {
       has_synonyms: true,
       is_moderator_only: false,
       is_required: false,
-      name: 'java',
+      name: 'java'
     };
 
     // const stringResult = '[{"has_synonyms":true,"is_moderator_only":false,"is_required":false,"count":1259409,"name":"java"}]';
 
     expect(service).toBeTruthy();
-    const java: IStackexTags[] = await service.getRelatedTags('java');
+    const java: Array<IStackexTags> = await service.getRelatedTags('java');
     // expect(JSON.stringify(java)).toEqual(stringResult);
     expect(java.length).toEqual(30); // default page size
   })));

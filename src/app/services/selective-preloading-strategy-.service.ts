@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SelectivePreloadingStrategy implements PreloadingStrategy {
-  preloadedModules: string[] = [];
+  preloadedModules: Array<string> = [];
 
   preload(route: Route, load: () => Observable<any>): Observable<any> {
     if (route.data && route.data['preload']) {
@@ -15,10 +15,11 @@ export class SelectivePreloadingStrategy implements PreloadingStrategy {
       }
 
       // log the route path to the console
-      console.log('Preloaded: ' + route.path);
+      console.log('Preloaded: ', route.path);
 
       return load();
     } else {
+      // tslint:disable-next-line:no-null-keyword
       return Observable.of(null);
     }
   }

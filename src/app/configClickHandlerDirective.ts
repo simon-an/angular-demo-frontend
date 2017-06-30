@@ -2,21 +2,22 @@ import { Input } from '@angular/core';
 import { Directive, EventEmitter, HostListener, Output, Renderer2 } from '@angular/core';
 
 @Directive({
-    selector: '[storeMenuItemClickHandler]',
+    selector: '[storeMenuItemClickHandler]'
 })
 export class ConfigClickHandlerDirective {
-    private renderer: Renderer2;
+
     @Output() myClick: EventEmitter<any> = new EventEmitter();
     @Input() callBack: () => void;
     @Input() callBack2: EventEmitter<string>;
     @Input() onBeforeAddingProcessor: (value: any) => boolean;
     @HostListener('click', ['$event'])
-    onClick(e) {
-        console.log('called' + this.callBack2);
-        console.log('onBeforeAddingProcessor' + this.onBeforeAddingProcessor);
+    private renderer: Renderer2;
+    onClick(e: MouseEvent): void {
+        console.log('called', this.callBack2);
+        console.log('onBeforeAddingProcessor', this.onBeforeAddingProcessor);
         const isValid = this.onBeforeAddingProcessor('test');
-        console.log('onBeforeAddingProcessor.result' + isValid);
-        console.log('onBeforeAddingProcessor.result' + this.onBeforeAddingProcessor('x'))   ;
+        console.log('onBeforeAddingProcessor.result', isValid);
+        console.log('onBeforeAddingProcessor.result', this.onBeforeAddingProcessor('x'));
         // if (e) {
         //     e.preventDefault();
         //     e.stopPropagation();

@@ -13,9 +13,11 @@ export class ProjectDetailComponent implements OnInit {
   project: Project;
   projectTeam: ProjectTeam;
 
-  constructor() { }
+  constructor() {
+    //
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.projectTeam = this.project.projectTeam;
   }
 

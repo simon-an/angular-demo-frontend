@@ -9,7 +9,7 @@ export class Education {
         name: string;
         website: string;
     }
-    courses: Course[];
+    courses: Array<Course>;
     duration: Period;
     graduation: Graduation;
 

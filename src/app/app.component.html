@@ -1,11 +1,11 @@
 <h1 Highlight>
-    {{title}}
+    {{ title }}
 </h1>
-<p myHighlight>Highlight me!</p>
+<p knowledge-myHighlight>Highlight me!</p>
 <div class="ui pointing labeled icon menu inverted">
     <a [routerLink]="item.link" class="item" *ngFor="let item of menuItems">
-        <i class="{{item.icon}}"></i>
-        {{item?.title}}
+        <i class="{{ item.icon }}"></i>
+        {{ item?.title }}
     </a>
     <div class="right labeled icon menu secondary">
         <div class="item">
@@ -26,7 +26,7 @@
             <div class="ui mini image">
                 <img src="{{user.profileImage}}">
             </div>
-            {{user.name}}
+            {{ user.name }}
         </a>
     </div>
 </div>
@@ -39,7 +39,7 @@
     </sui-sidebar>
     <sui-sidebar class="inverted vertical" #storeSidebar>
         <a *ngFor="let item of storeMenuItems2" class="item" (click)=item.callback()>
-            <i [class]="item.icon"></i> {{item.title}}
+            <i [class]="item.icon"></i> {{ item.title }}
         </a>
     </sui-sidebar>
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">

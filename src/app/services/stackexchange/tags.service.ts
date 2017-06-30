@@ -13,7 +13,7 @@ export interface IStackexTags {
 
 }
 export interface IRootObject {
-  items: IStackexTags[];
+  items: Array<IStackexTags>;
   has_more: boolean;
   quota_max: number;
   quota_remaining: number;
@@ -43,11 +43,11 @@ export class TagsService {
 
   }
 
-  nameFilter(name1: IStackexTags, index: number, array: IStackexTags[]): boolean {
+  nameFilter(name1: IStackexTags, index: number, array: Array<IStackexTags>): boolean {
     return true;
   }
 
-  async getRelatedTags(name: string): Promise<IStackexTags[]> {
+  async getRelatedTags(name: string): Promise<Array<IStackexTags>> {
 
     const response = await this.http.get(this.url + this.relatedTags + name + this.relatedTags2 + this.site).toPromise();
 
@@ -58,8 +58,9 @@ export class TagsService {
       setTimeout(root.backoff);
     }
 
-    const items: IStackexTags[] = root.items;
+    const items: Array<IStackexTags> = root.items;
     console.log('items', root.items);
+
     return response.json().items;
   }
 
@@ -73,8 +74,9 @@ export class TagsService {
       setTimeout(root.backoff);
     }
 
-    const items: IStackexTags[] = root.items;
+    const items: Array<IStackexTags> = root.items;
     // console.log('items', root.items);
+
     return response.json().items.filter((item: IStackexTags) => {
       return item.name === name;
     })[0];

@@ -8,7 +8,7 @@ export class ProjectMembership {
 
     roles = {
         projectRole: ProjectRole,
-        duration: Period,
+        duration: Period
     }
 
 }

@@ -8,20 +8,20 @@ import { TrainedSkill } from 'app/datamodel/trained-skill';
 
 export class Consultant {
     //
-    jobRoles: JobRole[];
-    projectRoles: ProjectRole[];
+    jobRoles: Array<JobRole>;
+    projectRoles: Array<ProjectRole>;
     primaryJobRole: JobRole;
-    preferedProjectRoles: ProjectRole[];
+    preferedProjectRoles: Array<ProjectRole>;
 
     //
     currentJob: Job;
-    jobHistory: Job[];
+    jobHistory: Array<Job>;
     //
     currentTeam: string;
     currentProject: Project;
     //
     certificates: any;
-    experience: ProjectMembership[];
-    education: Education[];
-    trainedSlills: TrainedSkill[];
+    experience: Array<ProjectMembership>;
+    education: Array<Education>;
+    trainedSlills: Array<TrainedSkill>;
 }

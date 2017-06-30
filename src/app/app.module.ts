@@ -29,7 +29,7 @@ import { MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule } fr
 
 @NgModule({
   imports: [MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule],
-  exports: [MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule],
+  exports: [MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule]
 })
 export class MyOwnCustomMaterialModule { }
 
@@ -52,7 +52,7 @@ export class MyOwnCustomMaterialModule { }
     ProjectListComponent,
     WebsocketComponent,
     HighlightDirective,
-    ConfigClickHandlerDirective,
+    ConfigClickHandlerDirective
   ],
   imports: [
     MyOwnCustomMaterialModule,
@@ -65,44 +65,44 @@ export class MyOwnCustomMaterialModule { }
     RouterModule.forRoot([
       {
         path: 'persons',
-        component: PersonListComponent,
+        component: PersonListComponent
       },
       {
         path: 'pdf',
-        component: PdfGeneratorComponent,
+        component: PdfGeneratorComponent
       },
       {
         path: 'profile',
-        component: UserProfileComponent,
+        component: UserProfileComponent
       },
       {
         path: 'about',
-        component: AboutComponent,
+        component: AboutComponent
       },
       {
         path: 'skills',
-        component: SkillsComponent,
+        component: SkillsComponent
       },
       {
         path: 'education',
-        component: EducationComponent,
+        component: EducationComponent
       },
       {
         path: 'documents',
-        component: DocumentsComponent,
+        component: DocumentsComponent
       },
       {
         path: 'projects',
-        component: ProjectListComponent,
+        component: ProjectListComponent
       },
       {
         path: 'admin-dashboard',
-        component: AdminDashboardComponent,
-      },
+        component: AdminDashboardComponent
+      }
 
-    ]),
+    ])
   ],
   providers: [UserService, WebsocketService, TagsService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
