@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms/';
 import { UserService } from 'app/services/user.service';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+
 import { EducationComponent } from './education.component';
 
 describe('EducationComponent', () => {
@@ -11,9 +11,9 @@ describe('EducationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [EducationComponent],
-      imports: [NgSemanticModule, FormsModule,
+      imports: [FormsModule,
         ReactiveFormsModule],
-      providers: [UserService],
+      providers: [UserService]
     })
       .compileComponents();
   }));

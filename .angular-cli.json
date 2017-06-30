@@ -19,12 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
+        "styles.scss",
         "../semantic-ui/semantic.min.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../semantic-ui/semantic.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -40,13 +38,25 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json"
+      "project": "src/tsconfig.app.json",
+      "exclude": [
+        "**/node_modules/**/*",
+        "**/semantic-ui/**/*"
+      ]
     },
     {
-      "project": "src/tsconfig.spec.json"
+      "project": "src/tsconfig.spec.json",
+      "exclude": [
+        "**/node_modules/**/*",
+        "**/semantic-ui/**/*"
+      ]
     },
     {
-      "project": "e2e/tsconfig.e2e.json"
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": [
+        "**/node_modules/**/*",
+        "**/semantic-ui/**/*"
+      ]
     }
   ],
   "test": {
@@ -55,7 +65,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

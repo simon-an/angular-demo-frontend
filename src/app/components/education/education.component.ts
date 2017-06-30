@@ -9,18 +9,18 @@ import { Period } from '../../datamodel/period';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.css'],
+  styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
 
   user: User;
-  private items = new Array<Education>();
+  public items = new Array<Education>();
 
   constructor(private userService: UserService) {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     this.items.push(new Education());
     this.items.push(new Education());
@@ -48,20 +48,20 @@ export class EducationComponent implements OnInit {
   }
 
   getUser(): void {
-    this.userService.getUser().subscribe((user) => this.user = user);
+    this.userService.getUser().subscribe(user => this.user = user);
   }
 
   addEducation(form2: NgForm): void {
-    console.log('schoolname' + form2.value.schoolGroup.name);
+    console.log('schoolname', form2.value.schoolGroup.name);
     console.log('form2', form2.value.schoolGroup);
     if (form2.dirty && form2.valid) {
-      if (this.items.find((education) => education.school.name === form2.value.schoolGroup.name)) {
-        console.log('school already exists' + form2.value.schoolGroup.name);
+      if (this.items.find(education => education.school.name === form2.value.schoolGroup.name)) {
+        console.log('school already exists', form2.value.schoolGroup.name);
       } else {
         const e = new Education();
         e.school.name = form2.value.schoolGroup.name;
         this.items.push(e);
-        console.log('new skill' + this.items.length);
+        console.log('new skill', this.items.length);
         // this.saveSkills();
       }
     }

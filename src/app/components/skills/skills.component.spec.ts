@@ -3,7 +3,6 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms/';
 import { Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from 'app/services/user.service';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { SkillsComponent } from './skills.component';
 
 describe('SkillsComponent', () => {
@@ -14,14 +13,13 @@ describe('SkillsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SkillsComponent],
       imports: [
-        NgSemanticModule,
         FormsModule,
         ReactiveFormsModule,
         // Router, RouterModule, FormBuilder,
         //   RouterTestingModule.withRoutes(
         //     []), // { path: '', component: BlankCmp }, { path: 'simple', component: SimpleCmp }
       ],
-      providers: [UserService],
+      providers: [UserService]
     })
       .compileComponents();
   }));

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/datamodel/user';
 import { UserService } from 'app/services/user.service';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 
 @Component({
   selector: 'app-person-detail',

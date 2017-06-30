@@ -4,18 +4,13 @@ import { ElementRef, Renderer2 } from '@angular/core';
 import { Input } from '@angular/core';
 import { ArrayBuffer } from '@angular/http/src/static_request';
 import { Router } from '@angular/router';
-import { NgSemanticModule, SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from 'ng-semantic/ng-semantic';
 import { User } from './datamodel/user';
 import { UserService } from './services/user.service';
-
-// import 'jquery';
-// import 'semantic';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  styles: ['../node_modules/jquery/dist/jquery.min.js', 'assets/css/styles.css'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
@@ -24,23 +19,23 @@ export class AppComponent {
   menuItems = [
     { title: 'projects', icon: 'sun icon', link: 'projects' },
     { title: 'persons', icon: 'users icon', link: 'persons' },
-    { title: 'create PDF', icon: 'pdf file outline', link: 'pdf' },
-    { title: 'skills', icon: 'big loading sun icon', link: 'skills' },
+    { title: 'create PDF', icon: 'pdf file outline icon', link: 'pdf' },
+    { title: 'skills', icon: 'loading sun icon', link: 'skills' },
     { title: 'education', icon: 'book icon', link: 'education' },
-    { title: 'documents', icon: 'folder open outline icon', link: 'documents' },
+    { title: 'documents', icon: 'folder open outline icon', link: 'documents' }
   ]
 
   storeMenuItems = [
-    { title: 'save', icon: 'save icon', callback: new EventEmitter() },
-    { title: 'delete', icon: 'delete icon', callback: new EventEmitter() },
-    { title: 'load', icon: 'download icon', callback: new EventEmitter() },
+    { title: 'save', icon: 'save large icon', callback: new EventEmitter() },
+    { title: 'delete', icon: 'delete large icon', callback: new EventEmitter() },
+    { title: 'load', icon: 'download large icon', callback: new EventEmitter() }
   ];
 
   // does not work since string will be not converted to a function
   storeMenuItems2 = [
-    { title: 'save', icon: 'save icon', callback: this.save },
-    { title: 'delete', icon: 'delete icon', callback: this.delete },
-    { title: 'load', icon: 'download icon', callback: this.load },
+    { title: 'save', icon: 'save large icon', callback: this.save },
+    { title: 'delete', icon: 'delete large icon', callback: this.delete },
+    { title: 'load', icon: 'download large icon', callback: this.load }
   ];
 
   user: User;
@@ -53,7 +48,7 @@ export class AppComponent {
 
   ngOnInit() {
     (this.storeMenuItems[0].callback as EventEmitter<string>).asObservable.bind(this.save);
-    (this.storeMenuItems[0].callback as EventEmitter<string>).subscribe((e) => { console.log('bla') });
+    (this.storeMenuItems[0].callback as EventEmitter<string>).subscribe((e: string) => { console.log('bla') });
     this.getUser();
 
     if (typeof (Storage) !== 'undefined') {
@@ -68,25 +63,25 @@ export class AppComponent {
   }
 
   getUser(): void {
-    this.userService.getUser().subscribe((user) => {
+    this.userService.getUser().subscribe(user => {
       this.user = user;
       console.log('Hello' + this.user.profileImage);
-    }, (error) => console.log('Nothing' + error));
+    }, error => console.log('Nothing' + error));
   }
   // event: Event
   save(): void {
     // console.log('save');
-    this.createKey2();
+    // this.createKey2();
     this.createKey();
     // (event[1] as Renderer2).setStyle(event[0].target, 'backgroundColor', 'green');
     window.crypto.subtle.generateKey(
       {
         name: 'AES-CBC',
-        length: 256,
+        length: 256
       },
       false,
-      ['encrypt', 'decrypt'],
-    ).then((key) => {
+      ['encrypt', 'decrypt']
+    ).then(key => {
       // x: BufferSource = {};
       // window.crypto.subtle.encrypt(key, buffer);
       console.log(key);
@@ -102,10 +97,10 @@ export class AppComponent {
   }
 
   onClick(event: Event): void {
-    console.log('onclick', event[0].target, event[2]);
-    (event[1] as Renderer2).setStyle(event[0].target, 'backgroundColor', 'yellow');
+    console.log('onclick', event.target);
+    // console.log('onclick', event[0].target, event[2]);
+    // (event[1] as Renderer2).setStyle(event[0].target, 'backgroundColor', 'yellow');
   }
-
 
   stringToArrayBuffer(text: string): Uint8Array {
     return new Uint8Array([207, 240, 232, 226, 229, 242, 44, 32, 236, 232]);
@@ -114,10 +109,10 @@ export class AppComponent {
     return 'bla';
   }
 
-  createKey2(): CryptoKey {
-    return;
+  // createKey2(): CryptoKey {
+  //   return;
 
-  }
+  // }
 
   createKey(): void {
     const saltString = 'Pick anything you want. This isn\'t secret.';
@@ -141,28 +136,31 @@ export class AppComponent {
       false,
       ['deriveKey']).
       // Derive a key from the password
-      then((baseKey) => {
+      then(baseKey => {
         return window.crypto.subtle.deriveKey(
           {
             name: 'PBKDF2',
             salt: this.stringToArrayBuffer(saltString),
             iterations,
-            hash,
+            hash
           },
           baseKey,
           { name: 'AES-GCM', length: 256 }, // Key we want
           true,                               // Extrable
-          ['encrypt', 'decrypt'],     // For new key
+          ['encrypt', 'decrypt']     // For new key
         );
       }).
       // Export it so we can display it
-      then((aesKey) => {
+      then(aesKey => {
         return window.crypto.subtle.exportKey('raw', aesKey);
       }).
       // Display it in hex format
-      then((keyBytes) => {
+      then(keyBytes => {
         const hexKey = this.arrayBufferToHexString(keyBytes);
-        document.getElementById('aes-key').innerText = hexKey;
+        const keyElement: HTMLElement | null = document.getElementById('aes-key')
+        if (keyElement) {
+          keyElement.innerText = hexKey;
+        }
       });
     // catch(function (err) {
     //   alert("Key derivation failed: " + err.message);
@@ -173,7 +171,7 @@ export class AppComponent {
 
 // tslint:disable-next-line:max-classes-per-file
 @Directive({
-  selector: '[myHighlight]',
+  selector: '[myHighlight]'
 })
 export class HighlightDirective {
   @Input() highlightColor: string;

@@ -47,8 +47,9 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
     this.getUser();
 
-    const skillString = localStorage.getItem('skills');
-    if (skillString) {
+    const skillString: string | null = localStorage.getItem('skills');
+    // tslint:disable-next-line:prefer-conditional-expression
+    if (skillString !== null) {
       this.skills = JSON.parse(skillString);
     } else {
       this.skills = this.user.skills;

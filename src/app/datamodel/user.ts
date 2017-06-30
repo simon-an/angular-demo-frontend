@@ -11,15 +11,14 @@ import { TrainedSkill } from 'app/datamodel/trained-skill';
 export class User extends Person {
     rating: number;
     profileImage: string;
-    suggestedSkills: string[];
+    suggestedSkills: Array<string>;
     contributions: any;
     logins: number;
     premiumUser: boolean;
     xingProfile: string;
     faceBookProfile: string;
 
-
     // do we assign skills directly?
-    skills: Skill[];
+    skills: Array<Skill>;
 
 }

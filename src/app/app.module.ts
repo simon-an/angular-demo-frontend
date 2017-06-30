@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TagsService } from 'app/services/stackexchange/tags.service';
 import { UserService } from 'app/services/user.service';
 import { WebsocketService } from 'app/services/websocket.service';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+import { SuiModule } from 'ng2-semantic-ui'
 import { AppComponent, HighlightDirective } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
@@ -24,6 +25,15 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ConfigClickHandlerDirective } from './configClickHandlerDirective';
 
+import { MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule } from '@angular/material';
+
+@NgModule({
+  imports: [MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule],
+  exports: [MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule],
+})
+export class MyOwnCustomMaterialModule { }
+
+// tslint:disable-next-line:max-classes-per-file
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,11 +55,13 @@ import { ConfigClickHandlerDirective } from './configClickHandlerDirective';
     ConfigClickHandlerDirective,
   ],
   imports: [
+    MyOwnCustomMaterialModule,
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    NgSemanticModule,
+    SuiModule,
     RouterModule.forRoot([
       {
         path: 'persons',

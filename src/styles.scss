@@ -1,4 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
 /*@import "../../../semantic-ui/semantic.min.css"*/
+@import 'assets/css/theme.scss';
 
 /* forms css styles */
 
@@ -29,3 +31,4 @@ state. we don't want to impose that requirement */
   border: 2px dotted green;
   background-color: yellow;
 }
+

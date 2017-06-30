@@ -7,34 +7,34 @@ import { WebsocketService } from '../../../services/websocket.service';
   templateUrl: './websocket.component.html',
   // styleUrls: ['./websocket.component.css'],
   styles: [
-    'p,button,h1{font-family:"sans-serif"; color: #333}',
-  ],
+    'p,button,h1{font-family:"sans-serif"; color: #333}'
+  ]
 })
 export class WebsocketComponent implements OnInit {
 
+  public message: string;
+  public sentMessage: string;
   private socket: Subject<any>;
   private counterSubscription: Subscription;
-  private message: string;
-  private sentMessage: string;
   constructor(websocketService: WebsocketService) {
     this.socket = websocketService.createWebsocket();
   }
-  ngOnInit() {
+  ngOnInit(): void {
     this.socket.subscribe(
-      (message) => this.message = message.data,
+      message => this.message = message.data
     );
   }
-  private launchCounter() {
+  public launchCounter(): void {
     // Counter already initialized
     if (this.counterSubscription) {
       this.counterSubscription.unsubscribe();
     }
     const counter = Observable.interval(1000);
     this.counterSubscription = counter.subscribe(
-      (num) => {
-        this.sentMessage = 'Websocket Message ' + num;
+      num => {
+        this.sentMessage = `Websocket Message ${num}`;
         this.socket.next(this.sentMessage);
-      },
+      }
     );
   }
 }

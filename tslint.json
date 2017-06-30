@@ -4,7 +4,8 @@
   ],
   "extends": [
     "codelyzer",
-    "tslint:latest"
+    "tslint:latest",
+    "angular-tslint-rules"
   ],
   "rules": {
     "callable-types": true,
@@ -14,6 +15,7 @@
       "check-space"
     ],
     "curly": true,
+    "encoding": true,
     "eofline": true,
     "forin": true,
     "import-blacklist": [
@@ -31,11 +33,21 @@
       true,
       "LF"
     ],
-    "max-line-length": {
-      "options": 140,
-      "severity": "warning"
-    },
-    "member-access": false,
+    "cyclomatic-complexity": [
+      true,
+      20
+    ],
+    "max-file-line-count": [
+      true,
+      1500
+    ],
+    "max-line-length": [
+      true,
+      140
+    ],
+    "member-access": [
+      false
+    ],
     "member-ordering": [
       true,
       "public-before-private",
@@ -55,7 +67,7 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-variable": true,
-    "no-empty": false,
+    "no-empty": true,
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
@@ -76,9 +88,11 @@
       "check-open-brace",
       "check-catch",
       "check-else",
-      "check-whitespace"
+      "check-whitespace",
+      "check-finally"
     ],
     "prefer-const": true,
+    "prefer-for-of": true,
     "quotemark": [
       true,
       "single"
@@ -111,12 +125,39 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ]
-    /*
-    ,
-    //  Codelyzer rules:
-    // The rule have the following arguments:
-    // [ENABLED, "attribute" | "element", "selectorPrefix" | ["listOfPrefixes"], "camelCase" | "kebab-case"]
+    ],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-forward-ref": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "pipe-naming": [
+      true,
+      "camelCase",
+      "sg",
+      "knowledge"
+    ],
+    // [ENABLED, "SUFFIX"]
+    // Where "SUFFIX" is your custom suffix, for instance "Page" for Ionic 2 components.
+    //"component-class-suffix": [true, "Component"],
+    //"directive-class-suffix": [true, "Directive"],
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
+    "templates-use-public": true,
+    "no-access-missing-member": true,
+    "invoke-injectable": true,
+    "template-to-ng-template": true,
+    "angular-whitespace": [
+      true,
+      "check-interpolation",
+      "check-pipe"
+    ],
+    "banana-in-box": true,
+    "templates-no-negated-async": true,
     "directive-selector": [
       true,
       "attribute",
@@ -134,33 +175,6 @@
         "knowledge"
       ],
       "kebab-case"
-    ],
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
-    "no-attribute-parameter-decorator": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "no-forward-ref": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "pipe-naming": [
-      true,
-      "camelCase",
-      [
-        "sg",
-        "knowledge"
-      ]
-    ],
-    // [ENABLED, "SUFFIX"]
-    // Where "SUFFIX" is your custom suffix, for instance "Page" for Ionic 2 components.
-    // "component-class-suffix": [true, "Component"],
-    //  "directive-class-suffix": [true, "Directive"],
-    "component-class-suffix": true,
-    "directive-class-suffix": true,
-    "templates-use-public": true,
-    "no-access-missing-member": true,
-    "invoke-injectable": true,
-    "template-to-ng-template": true*/
+    ]
   }
 }

@@ -8,16 +8,15 @@ import { UserService } from 'app/services/user.service';
 })
 export class PdfGeneratorComponent implements OnInit {
 
-
   user: User;
 
-  constructor(private userService: UserService) { }
-  ngOnInit() {
+  constructor(public userService: UserService) { }
+  ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void {
-    this.userService.getUser().subscribe((user) => this.user = user);
+    this.userService.getUser().subscribe(user => this.user = user);
   }
 
 }

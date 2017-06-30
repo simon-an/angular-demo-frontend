@@ -2,37 +2,53 @@
     {{title}}
 </h1>
 <p myHighlight>Highlight me!</p>
-<sm-menu title="Knowledge" class="inverted">
-    <a sm-item *ngFor="let item of menuItems" [icon]="item.icon" [routerLink]="item.link">{{item?.title}}</a>
-
-    <sm-menu class="menu right secondary">
-        <a Highlight sm-item routerLink="profile" [image]="user.profileImage">{{user.name}}</a>
-        <a sm-item icon="suitcase big" (click)="storeSidebar.show({transition: 'overlay'})"></a>
-        <a sm-item icon="sidebar big" (click)="menuSidebar.show({transition: 'overlay'})"></a>
-    </sm-menu>
-</sm-menu>
-
-<sm-sidebar class="left vertical inverted sidebar labeled icon menu" #menuSidebar>
-    <a class="item">
-        <i class="home icon"></i> Home
+<div class="ui pointing labeled icon menu inverted">
+    <a [routerLink]="item.link" class="item" *ngFor="let item of menuItems">
+        <i class="{{item.icon}}"></i>
+        {{item?.title}}
     </a>
-    <a class="item">
-        <i class="block layout icon"></i> Topics
-    </a>
-    <a class="item">
-        <i class="smile icon"></i> Friends
-    </a>
-</sm-sidebar>
+    <div class="right labeled icon menu secondary">
+        <div class="item">
+            <div class="ui transparent icon input">
+                <i class="search link icon"></i>
+                <input placeholder="Search..." type="text">
+            </div>
+        </div>
+        <a class="item" (click)="storeSidebar.toggle()">
+            <i class="suitcase huge icon"></i>
+            Data Store
+        </a>
+        <a class="item" (click)="menuSidebar.toggle()">
+            <i class="sidebar huge icon"></i>
+            MenuX
+        </a>
+        <a class="item" routerLink="profile">
+            <div class="ui mini image">
+                <img src="{{user.profileImage}}">
+            </div>
+            {{user.name}}
+        </a>
+    </div>
+</div>
 
-<sm-sidebar class="left vertical inverted sidebar labeled icon menu" #storeSidebar>
-    <!--<a *ngFor="let item of storeMenuItems" class="item" [onBeforeAddingProcessor]=isValid storeMenuItemClickHandler [callBack2]="item.callback"
+<sui-sidebar-container class="ui bottom attached segment ">
+    <sui-sidebar class="inverted vertical labeled icon menu " #menuSidebar>
+        <a class="item"><i class="home icon"></i>Home</a>
+        <a class="item"><i class="block layout icon"></i>Topics</a>
+        <a class="item"><i class="smile icon"></i> Friends </a>
+    </sui-sidebar>
+    <sui-sidebar class="inverted vertical" #storeSidebar>
+        <a *ngFor="let item of storeMenuItems2" class="item" (click)=item.callback()>
+            <i [class]="item.icon"></i> {{item.title}}
+        </a>
+    </sui-sidebar>
+    <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+        <router-outlet></router-outlet>
+    </sui-sidebar-sibling>
+</sui-sidebar-container>
+
+<!-- Zeile 27,28-->
+<!--<a *ngFor="let item of storeMenuItems" class="item" [onBeforeAddingProcessor]=isValid storeMenuItemClickHandler [callBack2]="item.callback"
         [callBack]=saveFunction (myClick)="onClick($event)">
         <i [class]="item.icon"></i> {{item.title}}
     </a>-->
-    <a *ngFor="let item of storeMenuItems2" class="item" (click)=item.callback()>
-        <i [class]="item.icon"></i> {{item.title}}
-    </a>
-</sm-sidebar>
-
-
-<router-outlet></router-outlet>
