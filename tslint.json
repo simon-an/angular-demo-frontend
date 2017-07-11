@@ -54,6 +54,7 @@
       "static-before-instance",
       "variables-before-functions"
     ],
+    "no-any": true,
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
@@ -71,7 +72,7 @@
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-shadowed-variable": true,
@@ -93,6 +94,7 @@
     ],
     "prefer-const": true,
     "prefer-for-of": true,
+    "promise-function-async": true,
     "quotemark": [
       true,
       "single"
@@ -105,6 +107,7 @@
       true,
       "allow-null-check"
     ],
+    "typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
     "typedef-whitespace": [
       true,
       {
@@ -160,8 +163,7 @@
     "templates-no-negated-async": true,
     "directive-selector": [
       true,
-      "attribute",
-      [
+      "attribute", [
         "sg",
         "knowledge"
       ],
@@ -169,8 +171,7 @@
     ],
     "component-selector": [
       true,
-      "element",
-      [
+      "element", [
         "sg",
         "knowledge"
       ],

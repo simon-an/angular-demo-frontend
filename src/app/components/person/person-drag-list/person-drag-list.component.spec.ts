@@ -8,26 +8,26 @@ import { MyOwnCustomMaterialModule } from '../../../app.module';
 import { CdkTableModule } from '@angular/cdk';
 
 describe('a person-drag-list component', () => {
-	let component: PersonDragListComponent;
-	let fixture: ComponentFixture<PersonDragListComponent>;
+    let component: PersonDragListComponent;
+    let fixture: ComponentFixture<PersonDragListComponent>;
 
-	beforeEach(async(() => {
-		TestBed.configureTestingModule({
-			declarations: [PersonDragListComponent],
-			imports: [MaterialModule, CdkTableModule, NoopAnimationsModule
-			],
-			providers: [UserService]
-		})
-			.compileComponents();
-	}));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [PersonDragListComponent],
+            imports: [MaterialModule, CdkTableModule, NoopAnimationsModule
+            ],
+            providers: [UserService]
+        })
+            .compileComponents();
+    }));
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(PersonDragListComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PersonDragListComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-	it('should have an instance', () => {
-		expect(component).toBeDefined();
-	});
-}); 
+    it('should have an instance', () => {
+        expect(component).toBeDefined();
+    });
+});

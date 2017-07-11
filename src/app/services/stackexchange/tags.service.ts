@@ -30,15 +30,15 @@ export interface IRootObject {
 @Injectable()
 export class TagsService {
   // tslint:disable-next-line:max-line-length
-  private url = 'https://api.stackexchange.com/2.2/';
-  private url2 = 'tags?order=desc&sort=popular&site=stackoverflow';
-  private tagsUrl = 'https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&page=1&pagesize=100';
+  private url: string = 'https://api.stackexchange.com/2.2/';
+  private url2: string = 'tags?order=desc&sort=popular&site=stackoverflow';
+  private tagsUrl: string = 'https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&page=1&pagesize=100';
   // private usersTagsUrl = 'https://api.stackexchange.com//2.2/users/1/tags?order=desc&sort=popular&site=stackoverflow'
-  private relatedTags = 'tags/';
-  private relatedTags2 = '/related';
+  private relatedTags: string = 'tags/';
+  private relatedTags2: string = '/related';
   // private tagsUrl = 'assets/testdata/testdata.json'; // URL to JSON file
-  private data: any;
-  private site = '?site=stackoverflow';
+  private data: {};
+  private site: string = '?site=stackoverflow';
   constructor(private http: Http) {
 
   }
