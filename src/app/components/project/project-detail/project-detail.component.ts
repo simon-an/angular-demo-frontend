@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Project } from 'app/datamodel/project';
-import { ProjectTeam } from '../../datamodel/project-team';
+import { ProjectTeam } from 'app/datamodel/project-team';
 
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css'],
+  styleUrls: ['./project-detail.component.css']
 })
 export class ProjectDetailComponent implements OnInit {
 

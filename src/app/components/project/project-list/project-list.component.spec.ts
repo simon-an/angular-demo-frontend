@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms/';
-import { ProjectDetailComponent } from 'app/components/project-detail/project-detail.component';
+import { ProjectDetailComponent } from 'app/components/project/project-detail/project-detail.component';
 import { UserService } from 'app/services/user.service';
 import { ProjectListComponent } from './project-list.component';
 

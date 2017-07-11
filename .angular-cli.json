@@ -20,6 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
+        "../node_modules/material-design-icons/iconfont/material-icons.css",
         "../semantic-ui/semantic.min.css"
       ],
       "scripts": [

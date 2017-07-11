@@ -6,6 +6,7 @@ import { ArrayBuffer } from '@angular/http/src/static_request';
 import { Router } from '@angular/router';
 import { User } from './datamodel/user';
 import { UserService } from './services/user.service';
+import 'hammerjs';
 
 @Component({
   selector: 'knowledge-root',
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
 
   menuItems = [
     { title: 'projects', icon: 'sun icon', link: 'projects' },
+    { title: 'project', icon: 'sun icon', link: 'project' },
     { title: 'persons', icon: 'users icon', link: 'persons' },
     { title: 'create PDF', icon: 'pdf file outline icon', link: 'pdf' },
     { title: 'skills', icon: 'loading sun icon', link: 'skills' },

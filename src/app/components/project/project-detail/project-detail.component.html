@@ -29,6 +29,7 @@
     </div>
   </div>
   <div class="extra content">
-    <button class="ui button">Join Project</button> 
+    <button *ngIf="project.intern" class="ui button">Apply Project</button>
+    <button *ngIf="!project.intern" class="ui button">Join Project</button>
   </div>
 </div>
