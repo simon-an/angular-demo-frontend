@@ -57,6 +57,7 @@
     "ts-helpers": "^1.1.2",
     "typings": "2.1.1",
     "web-animations-js": "2.2.5",
+    "webpack": "3.4.1",
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
@@ -87,7 +88,6 @@
     "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony-v2.8.22",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webdriver-manager": "~12.0.6",
-    "webpack": "3.4.1",
     "webpack-dev-server": "^2.6.1",
     "webpack-merge": "^4.1.0"
   }
