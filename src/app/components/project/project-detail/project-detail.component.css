@@ -1,6 +1,4 @@
-.ui.card {
-    margin: 3px;
-} 
- /*.content {*/
-    /*background-color: lightgray;*/
-    /*}*/
+.example-header-image {
+  background-image: url('~assets/profiles/steve.jpg');
+  background-size: cover;
+}

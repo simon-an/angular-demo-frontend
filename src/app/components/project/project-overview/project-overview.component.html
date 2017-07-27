@@ -1,8 +1,9 @@
 <div class="project-overview">
-    <app-person-drag-list (addPersonEvent)="personAdded($event)"></app-person-drag-list>
-    <md-grid-list rowHeight="2:3"  cols="4">
-        <md-grid-tile *ngFor="let person of project.people">
-            <app-person-card [person]="person"></app-person-card>
-        </md-grid-tile>
-    </md-grid-list>
+  <knowledge-project-detail [project]=project></knowledge-project-detail>
+  <knowledge-person-drag-list (addPersonEvent)="personAdded($event)"></knowledge-person-drag-list>
+  <md-grid-list rowHeight="2:3" cols="4">
+    <md-grid-tile *ngFor="let person of project.people">
+      <knowledge-person-card [person]="person"></knowledge-person-card>
+    </md-grid-tile>
+  </md-grid-list>
 </div>

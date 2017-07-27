@@ -3,7 +3,7 @@ import { Project } from 'app/datamodel/project';
 import { ProjectTeam } from 'app/datamodel/project-team';
 
 @Component({
-  selector: 'app-project-detail',
+  selector: 'knowledge-project-detail',
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css']
 })

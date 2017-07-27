@@ -1,35 +1,39 @@
-<div class="ui card">
-  <div class="content">
-    <div class="header">Project: {{project.name}}</div>
+<div class="Grid">
+  <div class="Grid-cell">
+    <md-card>
+      <md-card-header>
+        <md-card-title>x {{ project.name }}</md-card-title>
+        <md-card-subtitle>y {{ project.companyName }}</md-card-subtitle>
+        <img *ngFor="let member of project.projectTeam.team" mdCardAvatar src="assets/profiles/steve.jpg">
+        <img mdCardAvatar src="assets/profiles/steve.jpg">
+        <div md-card-avatar class="example-header-image"></div>
+      </md-card-header>
+      <md-card-title-group>
+        <md-card-title>I am A Text</md-card-title>
+        <md-card-subtitle>sdfsdfsdg sgsdgsdgsdgsdgs g sdg sdg sdg sdg</md-card-subtitle>
+        <img md-card-sm-image src="assets/images/metafinanz_logo.png">
+        <img md-card-md-image src="assets/images/metafinanz_logo.png">
+        <img md-card-lg-image src="assets/images/metafinanz_logo.png">
+      </md-card-title-group>
+
+      <!-- <img md-card-image mdCardImage src="assets/images/metafinanz_logo.png"> -->
+      <md-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
+          very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+        </p>
+      </md-card-content>
+      <md-card-actions align="start|end">
+        <!-- <button md-button (click)="onAction(event)">Action1</button> -->
+        <!-- <button md-button (click)="onAction(event)">Action2</button> -->
+      </md-card-actions>
+      <md-card-footer>
+        Footer
+      </md-card-footer>
+    </md-card>
   </div>
-  <div class="content">
-    <h4 class="ui sub header">{{project.companyName}}</h4>
-    <div class="ui small feed">
-      <div class="event">
-        <div class="content">
-          <div class="summary">
-            <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <div class="summary">
-            <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <div class="summary">
-            <a>Helen Troy</a> added two pictures
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="extra content">
-    <button *ngIf="project.intern" class="ui button">Apply Project</button>
-    <button *ngIf="!project.intern" class="ui button">Join Project</button>
+  <div class="Grid-cell">
+    <!-- outlet for the detail view -->
+    <router-outlet></router-outlet>
   </div>
 </div>

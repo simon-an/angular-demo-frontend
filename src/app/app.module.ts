@@ -1,5 +1,6 @@
+import { ContactApprovalComponent } from './components/notifications/contact-approval/contact-approval.component';
 import { DocumentsComponent } from './components/documents/documents.component';
-import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +14,7 @@ import { AboutComponent } from './components/about/about.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducationComponent } from './components/education/education.component';
-import { ContactApprovalComponent } from './components/notifications/contact-approval/contact-approval.component';
+import { NgModule } from '@angular/core';
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 import { PersonCardComponent } from './components/person/person-card/person-card.component';
 import { PersonDetailComponent } from './components/person/person-detail/person-detail.component';
@@ -24,17 +25,89 @@ import { WebsocketComponent } from './components/sample-components/websocket/web
 import { SkillsComponent } from './components/skills/skills.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ConfigClickHandlerDirective } from './configClickHandlerDirective';
-
-import { MaterialModule, MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule, MdGridListModule, MdIconModule, MdListModule } from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import {
+  MaterialModule,
+  MdAutocompleteModule,
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdChipsModule,
+  MdCoreModule,
+  MdDatepickerModule,
+  MdDialogModule,
+  MdExpansionModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdNativeDateModule,
+  MdPaginatorModule,
+  MdProgressBarModule,
+  MdProgressSpinnerModule,
+  MdRadioModule,
+  MdRippleModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  MdTableModule,
+  MdTabsModule,
+  MdToolbarModule,
+  MdTooltipModule,
+  OverlayModule
+} from '@angular/material';
 import { ProjectOverviewComponent } from './components/project/project-overview/project-overview.component';
 import { CdkTableModule } from '@angular/cdk';
 import { PersonDragListComponent } from './components/person/person-drag-list/person-drag-list.component';
+import { ProjectCardComponent } from 'app/components/project/project-card/project-card.component';
 
 @NgModule({
-  imports: [MdIconModule, MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule, MdGridListModule, MdListModule, MaterialModule, CdkTableModule],
-  exports: [MdIconModule, MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule, MdGridListModule, MdListModule, MaterialModule, CdkTableModule]
-})
-export class MyOwnCustomMaterialModule { }
+  // tslint:disable-next-line:max-line-length
+  // imports: [MdIconModule, MdButtonModule, MdCheckboxModule, MdCoreModule, MdDatepickerModule, MdGridListModule, MdListModule, MaterialModule, CdkTableModule],
+  exports: [
+    // CDk
+    CdkTableModule,
+
+    // Material
+    MdAutocompleteModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdDatepickerModule,
+    MdDialogModule,
+    MdExpansionModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdCoreModule,
+    MdPaginatorModule,
+    MdProgressBarModule,
+    MdProgressSpinnerModule,
+    MdRadioModule,
+    MdRippleModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSlideToggleModule,
+    MdSliderModule,
+    MdSnackBarModule,
+    MdTabsModule,
+    MdTableModule,
+    MdToolbarModule,
+    MdTooltipModule,
+    MdNativeDateModule,
+
+    // Material (future CDK)
+    OverlayModule
+  ]
+}) export class MyOwnCustomMaterialModule { }
 
 // tslint:disable-next-line:max-classes-per-file
 @NgModule({
@@ -54,10 +127,12 @@ export class MyOwnCustomMaterialModule { }
     ContactApprovalComponent,
     ProjectListComponent,
     ProjectOverviewComponent,
+    ProjectCardComponent,
     WebsocketComponent,
     HighlightDirective,
     ConfigClickHandlerDirective,
-    PersonDragListComponent
+    PersonDragListComponent,
+    ProjectDetailComponent
   ],
   imports: [
     MyOwnCustomMaterialModule,
@@ -67,6 +142,7 @@ export class MyOwnCustomMaterialModule { }
     ReactiveFormsModule,
     HttpModule,
     SuiModule,
+    FlexLayoutModule,
     RouterModule.forRoot([
       {
         path: 'persons',

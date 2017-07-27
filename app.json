@@ -13,5 +13,18 @@
     {
       "url": "https://github.com/heroku/heroku-buildpack-nodejs"
     }
-  ]
+  ],
+  "description": "This app does one little thing, and does it well.",
+  "keywords": [
+    "Sills",
+    "Knowledge",
+    "CV",
+    "curriculum vitae",
+    "HTML5",
+    "Angular"
+  ],
+  "website": "https://noneyet/",
+  "repository": "https://github.com/simon-an/frontent",
+  "image": "heroku/nodejs",
+  "stack": "heroku-16"
 }

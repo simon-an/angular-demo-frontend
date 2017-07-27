@@ -5,6 +5,7 @@ export class ProjectTeam {
 
     team: Array<ProjectMember>;
     layout: Array<ProjectRole>;
+    teamHistory: Array<ProjectMember>;
 
     isLayoutCompleteToday(): boolean { return false; }
 

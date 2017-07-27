@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Person } from 'app/datamodel/person';
 
 @Component({
-  selector: 'app-person-card',
+  selector: 'knowledge-person-card',
   templateUrl: './person-card.component.html',
   styleUrls: ['./person-card.component.css']
 })

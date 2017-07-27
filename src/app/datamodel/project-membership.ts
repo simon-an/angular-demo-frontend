@@ -5,10 +5,6 @@ import { ProjectRole } from 'app/datamodel/project-role';
 export class ProjectMembership {
 
     project: Project;
-
-    roles = {
-        projectRole: ProjectRole,
-        duration: Period
-    }
-
+    roles: Array<ProjectRole>
+    duration: Period;
 }

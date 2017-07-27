@@ -1,5 +1,6 @@
 export class Technology {
 
-    name: string;
+    name: string; // most common name
+    names: Array<string>; // Tag
     score: number;
 }
