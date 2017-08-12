@@ -27,7 +27,7 @@ before_script:
 script:
   #- npm run ci:travis
    - npm run travis-test
-   - npm run travis-build
+   #- npm run travis-build #already is running in post-install script
 cache:
   directories:
     - node_modules
