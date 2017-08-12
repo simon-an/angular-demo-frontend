@@ -31,6 +31,9 @@ script:
 cache:
   directories:
     - node_modules
+before_deploy: "echo 'deploying now.'"
+after_deploy:
+  - "echo 'deploy done.'"
 deploy:
   provider: pages
   skip_cleanup: true
