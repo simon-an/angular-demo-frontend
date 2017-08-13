@@ -19,7 +19,7 @@
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
     "startold": "npm run server",
     "watch": "npm run build -- --watch",
-    "postinstall": "ng build --aot -prod",
+    "postinstall": "ng build --aot --prod",
     "start": "node server.js"
   },
   "engines": {
