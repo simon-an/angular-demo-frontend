@@ -1,3 +1,4 @@
+import { PathLocationComponent } from './components/sample-components/pathlocation/pathlocation.component';
 import { ContactApprovalComponent } from './components/notifications/contact-approval/contact-approval.component';
 import { DocumentsComponent } from './components/documents/documents.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -54,6 +55,7 @@ import {
   MdSliderModule,
   MdSlideToggleModule,
   MdSnackBarModule,
+  MdSortModule,
   MdTableModule,
   MdTabsModule,
   MdToolbarModule,
@@ -100,6 +102,7 @@ import { environment } from "environments/environment";
     MdSlideToggleModule,
     MdSliderModule,
     MdSnackBarModule,
+    MdSortModule,
     MdTabsModule,
     MdTableModule,
     MdToolbarModule,
@@ -134,7 +137,8 @@ import { environment } from "environments/environment";
     HighlightDirective,
     ConfigClickHandlerDirective,
     PersonDragListComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    PathLocationComponent
   ],
   imports: [
     MyOwnCustomMaterialModule,

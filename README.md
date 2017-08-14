@@ -12,6 +12,22 @@ https://heroku.com
 
 ´´´ npm start ´´´
 
+ng serve --base-href '/frontend-demo/'  --deploy-url '/frontend-demo/' --env frontend-demo
+
+### deploy to github pages:
+
+ npm install --save-dev angular-cli-ghpages
+
+$env:GH_TOKEN="<token>"
+npm run deploy
+
+### deploy to a different gihub repo:
+
+1.1 Remove-Item node_modules/gh-pages/.cache/* -Force -Recurse
+1.2 npm run deploy-demo-github
+
+2. npm run deploy-demo (right know there is an error in angular-cli-ghpages)
+
 ### Angular-CLI
 ´´´ ng serve ```
 
