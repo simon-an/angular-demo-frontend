@@ -18,7 +18,7 @@
     "travis-build": "ng build --prod --base-href=https://simon-an.github.io/frontend-demo/ --env=frontend-demo",
     "postinstall": "ng build --aot --prod --env=frontend-demo --base-href=/frontend-demo/",
     "travis-test-working": "./node_modules/.bin/karma start --browsers Firefox --single-run",
-    "travis-test": "ng test --coverage --browsers Firefox --single-run",
+    "travis-test": "ng test --code-coverage --browsers Firefox --single-run",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
     "startold": "npm run server",
     "watch": "npm run build -- --watch",
