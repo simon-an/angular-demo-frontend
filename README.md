@@ -1,3 +1,6 @@
+[![dependencies Status](https://david-dm.org/simon-an/frontent/status.svg)](https://david-dm.org/simon-an/frontent)
+[![Build Status](https://travis-ci.org/simon-an/frontent.svg?branch=master)](https://travis-ci.org/simon-an/frontent)
+[![Coverage Status](https://coveralls.io/repos/github/simon-an/frontent/badge.svg)](https://coveralls.io/github/simon-an/frontent)
 
 ## Demo:
 
