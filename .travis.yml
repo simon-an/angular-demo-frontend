@@ -27,6 +27,18 @@ before_script:
 script:
   #- npm run ci:travis
    - npm run travis-test
+   #- npm run travis-build #already is running in post-install script
 cache:
   directories:
     - node_modules
+before_deploy: "echo 'deploying now.'"
+after_deploy:
+  - "echo 'deploy done.'"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: dist
+  repo: simon-an/frontend-demo
+  on:
+    branch: master

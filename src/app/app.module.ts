@@ -1,3 +1,4 @@
+import { PathLocationComponent } from './components/sample-components/pathlocation/pathlocation.component';
 import { ContactApprovalComponent } from './components/notifications/contact-approval/contact-approval.component';
 import { DocumentsComponent } from './components/documents/documents.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -65,6 +66,8 @@ import { ProjectOverviewComponent } from './components/project/project-overview/
 import { CdkTableModule } from '@angular/cdk';
 import { PersonDragListComponent } from './components/person/person-drag-list/person-drag-list.component';
 import { ProjectCardComponent } from 'app/components/project/project-card/project-card.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { environment } from "environments/environment";
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
@@ -134,7 +137,8 @@ import { ProjectCardComponent } from 'app/components/project/project-card/projec
     HighlightDirective,
     ConfigClickHandlerDirective,
     PersonDragListComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    PathLocationComponent
   ],
   imports: [
     MyOwnCustomMaterialModule,
@@ -189,7 +193,9 @@ import { ProjectCardComponent } from 'app/components/project/project-card/projec
 
     ])
   ],
-  providers: [UserService, WebsocketService, TagsService],
+  providers: [UserService, WebsocketService, TagsService,
+  {provide: APP_BASE_HREF, useValue: environment.baseHref},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -28,6 +28,8 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
+        "frontend-demo": "environments/environment.frontend-demo.ts",
+        "github": "environments/environment.github.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
@@ -67,6 +69,39 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+      "component": {
+          "spec": true,
+          "inlineStyle": false,
+          "inlineTemplate": false,
+          "flat": false,
+          "changeDetection": "Default",
+          "viewEncapsulation": "Emulated"
+      },
+      "class": {
+          "spec": false
+      }, 
+      "directive": {
+          "flat": true,
+          "spec": true
+      },
+      "guard": {
+          "flat": true,
+          "spec": true
+      },
+      "interface": {
+          "prefix": ""
+      },
+      "module": {
+          "flat": false,
+          "spec": false
+      },
+      "pipe": {
+          "flat": true,
+          "spec": true
+      },
+      "service": {
+          "flat": true,
+          "spec": true
+      }
   }
 }
